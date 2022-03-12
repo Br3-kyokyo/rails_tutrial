@@ -1,0 +1,57 @@
+class UsersController < ApplicationController
+  
+  def show
+    @user = User.find(params[:id])
+    # debugger
+  end
+  
+  def new
+    @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      log_in @user
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                  :password_confirmation)
+    end
+end
+
+
+# そうじゃないんだよね　英語でのプログラミング言語を模倣して日本語で言語を作ったところで、元になっているものが英語を基にして作られているのだから不自然になるだけ
+# そして変換が必要になる言語でプログラムを書くのはそもそも面倒
+# 
+
+群 ユーザーコントローラ < アプリケーションコントローラ {
+
+    方法 (ユーザー、数) {
+        
+    }
+
+    表示の方法「
+        全ユーザーから識別子が1の場合を取得して、ユーザーに代入
+    」
+
+    新規の方法「
+        新しいユーザーをユーザーに代入
+    」    
+}
+
+# やっぱ違うよなあ　こんなの研究でやりたくないよなあ　やるなら、私は政治哲学をやりたいよなあ
+# 人間のあり方について考えたいよなあ
+# 
